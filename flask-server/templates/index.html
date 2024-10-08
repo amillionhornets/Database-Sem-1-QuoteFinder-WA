@@ -6,7 +6,30 @@
     <title>Quote Finder</title>
     <link href="{{url_for('static',filename='dist/css/output.css')}}" rel="stylesheet">
 </head>
+<script>
+    function search(){
+        let author = document.getElementById("search").innerText;
+        let bodyObj = JSON.stringify(author, null, 4);
+        fetch("http://127.0.0.1:5000/search",{
+            method:"POST",
+            body: bodyObj
+        }).then(
+            res => res.json()
+        ).then(
+            data => {
+                setData(data)
+            }
+        )
+        console.log(data);
+    }
+    
+</script>
 <body class="bg-purple-300">
     <h1 class="text-center text-7xl mt-5 text-white drop-shadow-2xl">Quote Finder</h1>
+
+    <label for="searchBar"><input type="text" id="search"></label>
+    <button onclick="search">test</button>
+
+    <p id="test"></p>
 </body>
 </html>

@@ -6,6 +6,13 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template("index.html")
+@app.route('/quotes')
+def quotes():
+    return render_template("quotes.html")
+
+@app.route('/search', methods=['POST'])
+def search():
+    return "working request"
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run() 
