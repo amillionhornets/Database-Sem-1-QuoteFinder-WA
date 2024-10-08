@@ -10,7 +10,7 @@
     function search(){
         let author = document.getElementById("search").innerText;
         let bodyObj = JSON.stringify(author, null, 4);
-        fetch("http://127.0.0.1:5000/search",{
+        fetch("/search",{
             method:"POST",
             body: bodyObj
         }).then(
