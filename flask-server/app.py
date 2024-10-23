@@ -12,7 +12,8 @@ def quotes():
 
 @app.route('/search', methods=['POST'])
 def search():
-    return "working request"
+    req = request.get_json(force=True)
+    return jsonify("test")
 
 if __name__ == "__main__":
     app.run() 
